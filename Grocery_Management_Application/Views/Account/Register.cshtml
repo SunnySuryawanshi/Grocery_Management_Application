@@ -1,0 +1,32 @@
+﻿<link href="~/css/Register.css" rel="stylesheet" />
+@model Grocery_Management_Application.ViewModel.Account.RegisterViewModel
+
+<div class="wrapper">
+	<div class="title">
+		Registration
+	</div>
+	<form class="form-horizontal" asp-action="Register" asp-controller="Account" method="post">
+		<div class="field">
+			<label asp-for="Email"></label>
+			<input asp-for="Email" class="form-control" />
+			<span asp-validation-for="Email" class="text-danger"></span>
+		</div>
+		<div class="field">
+			<label asp-for="Password"></label>
+			<input asp-for="Password" class="form-control" />
+			<span asp-validation-for="Password" class="text-danger"></span>
+		</div>
+		<div class="field">
+			<label asp-for="ConfirmPassword"></label>
+			<input asp-for="ConfirmPassword" class="form-control" />
+			<span asp-validation-for="Password" class="text-danger"></span>
+		</div>
+
+		<div class="field">
+		    <input type="submit" value="Register"/>
+		</div>
+		<div class="signup-link">
+		   Already have a account? <a asp-controller="Account" asp-action="Login">Login</a>
+		</div>
+	</form>
+</div>

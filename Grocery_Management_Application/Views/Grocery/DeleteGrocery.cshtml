@@ -1,0 +1,65 @@
+﻿@model Grocery_Management_Application.ViewModel.Grocery.DeleteGroceryViewModel
+
+<div class="container my-4">
+	<h2>Delete Grocery</h2>
+
+	<div class="text-center">
+		<form asp-action="DeleteGrocery" asp-controller="Grocery" method="post">
+
+			<div class="row">
+				<div class="col-sm-7">
+					<label><b>Name:</b></label>
+				</div>
+				<div class="col-sm-3">
+					@Model.ItemName
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-7">
+					<label><b>Description:</b></label>
+				</div>
+				<div class="col-sm-3">
+					@Model.ItemDescription
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-7">
+					<label><b>Type:</b></label>
+				</div>
+				<div class="col-sm-3">
+					@Model.ItemType
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-7">
+					<label><b>Category:</b></label>
+				</div>
+				<div class="col-sm-3">
+					@Model.CategoryName
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-7">
+					<label><b>Price:</b></label>
+				</div>
+				<div class="col-sm-3">
+					@Model.ItemPrice
+				</div>
+			</div>
+
+			<hr />
+			<div class="row">
+				<div class="col-sm-12">
+					<p> Do you want to delete ?</p>
+					<button type="submit" class="btn btn-danger">Yes</button>
+					<a class="btn btn-primary" asp-controller="Grocery" asp-action="Index">No</a>
+				</div>
+			</div>
+		</form>
+
+	</div>
+</div>

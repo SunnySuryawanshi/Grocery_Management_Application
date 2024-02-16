@@ -35,7 +35,7 @@ namespace Grocery_Management_Application.Migrations
                     ItemType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ItemPrice = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ItemPrice = table.Column<double>(type: "float", nullable: false),
                     Createdby = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

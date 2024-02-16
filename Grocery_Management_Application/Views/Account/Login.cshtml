@@ -1,0 +1,33 @@
+﻿<link href="~/css/Login.css" rel="stylesheet" />
+
+@model Grocery_Management_Application.ViewModel.Account.LoginViewModel
+
+<body> 
+    
+		<div class="wrapper">
+			<div class="title">
+				Login Form
+			</div>
+			<form class="form-horizontal" asp-action="Login" asp-controller="Account" method="post">
+				<div class="field">
+					<label asp-for="Email"></label>
+					<input asp-for="Email" class="form-control" />
+					<span asp-validation-for="Email" class="text-danger"></span>
+				</div>
+
+				<div class="field">
+					<label asp-for="Password"></label>
+					<input asp-for="Password" class="form-control" type="password" />
+					<span asp-validation-for="Password" class="text-danger"></span>
+				</div>
+
+				<div class="field">
+					<input type="submit" value="Login">
+				</div>
+				<div class="signup-link">
+				   Not a member? <a asp-controller="Account" asp-action="Register">Signup Now</a>
+				</div>
+			</form>
+		</div>
+	
+</body>

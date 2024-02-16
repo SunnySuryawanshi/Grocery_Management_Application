@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Grocery_Management_Application.ViewModel.Grocery.GroceryDetailViewModelcs>
+
+
+<body>
+	<div class="container">
+		<div class="row">
+			
+	     <h2><b>Grocery List</b></h2>
+				@if(Model.Count() ==0)
+				{
+					<tr>
+						<td colspan="4">NO Record Found !!</td>
+					</tr>
+				}
+				else
+				{
+					@foreach(var grocery in Model)
+					{
+
+
+
+					<div class="col-sm-3">
+						<div class="card">
+							<div class="card-img">
+								@if (grocery.CategoryName == "Grains")
+								{
+									<img src="https://media.istockphoto.com/id/480322632/photo/legumes.jpg?s=2048x2048&w=is&k=20&c=EiOXMr4SCKxaP61cjpf-AlMtI156-XCsVvXvCem9cLw=" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+								@if (grocery.CategoryName == "Fruits")
+								{
+									<img src="https://static.toiimg.com/photo/99490379.cms" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+								@if (grocery.CategoryName == "Vegetables")
+								{
+									<img src="https://www.shutterstock.com/image-photo/composition-assorted-raw-organic-vegetables-260nw-598749548.jpg" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+								@if (grocery.CategoryName == "Bread & Bakery")
+								{
+									<img src="https://live.staticflickr.com/65535/50867815668_c5dfae80e3_b.jpg" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+								@if (grocery.CategoryName == "Snacks")
+								{
+									<img src="https://www.tastingtable.com/img/gallery/25-most-popular-snacks-in-america-ranked-worst-to-best/l-intro-1645492743.jpg" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+								@if (grocery.CategoryName == "Meat & Fish")
+								{
+									<img src="https://recipes.net/wp-content/uploads/2020/08/different-types-of-fish-and-meat-scaled.jpg" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+								@if (grocery.CategoryName == "Oils & Fat")
+								{
+									<img src="https://s7d1.scene7.com/is/image/KeminIndustries/shutterstock_377110435-1?$responsive$" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+								@if (grocery.CategoryName == "Dairy & Eggs")
+								{
+									<img src="https://www.shutterstock.com/shutterstock/photos/1679020255/display_1500/stock-photo-fresh-dairy-products-milk-cottage-cheese-eggs-yogurt-sour-cream-and-butter-on-wooden-table-1679020255.jpg" class="img-fluid rounded-start" style="margin-top:auto;">
+								}
+								@if (grocery.CategoryName == "Frozen Foods")
+								{
+									<img src="https://images.news18.com/ibnlive/uploads/2022/10/shutterstock_1897686493.jpg" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+								@if (grocery.CategoryName == "Heath & Personal Care")
+								{
+									<img src="https://st3.depositphotos.com/1177973/12669/i/950/depositphotos_126693854-stock-photo-set-of-body-care-products.jpg" class="img-fluid rounded-start" style="margin-top:auto">
+								}
+								@if (grocery.CategoryName == "Baby Items")
+								{
+									<img src="https://www.shutterstock.com/image-vector/baby-item-icons-vector-toys-260nw-1545177191.jpg" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+								@if (grocery.CategoryName == "Pet Care")
+								{
+									<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-1 4LMRUQDTb4MDsjk-4RUv2awmHf_A2_nlQ&usqp=CAU" class="img-fluid rounded-start" style="margin-top:auto"/>
+								}
+								@if (grocery.CategoryName == "Beverages")
+								{
+									<img src="https://eu-images.contentstack.com/v3/assets/blta023acee29658dfc/blta9f158c45627aa62/651dbb742365a678d7ec7f18/AdobeStock_279692163_Editorial_Use_Only-Beverage-FTR-new.jpg?disable=upscale&width=1200&height=630&fit=crop" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+								@if (grocery.CategoryName == "Condiments & Spices")
+								{
+									<img src="https://foodtech101food.files.wordpress.com/2021/05/spices-and-condiments-by-food-tech-101-3.jpg" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+								@if (grocery.CategoryName == "Household & Cleaning Supplies")
+								{
+									<img src="https://static-ssl.businessinsider.com/image/5c9a535e7563b067ec4ca8a7-1200/household%20cleaning%20products%2043.jp2" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+								@if (grocery.CategoryName == "Baking")
+								{
+									<img src="https://m.media-amazon.com/images/I/81znSDwOlsL._AC_UF894,1000_QL80_.jpg" class="img-fluid rounded-start" style="margin-top"/>
+								}
+								@if (grocery.CategoryName == "Tinned & Dried Produce")
+								{
+									<img src="https://www.shutterstock.com/image-photo/set-raw-cereals-grains-pasta-260nw-1694832673.jpg" class="img-fluid rounded-start" style="margin-top" />
+								}
+								@if (grocery.CategoryName == "Canned Goods")
+								{
+									<img src="https://c8.alamy.com/comp/2TA8PWY/a-wooden-pantry-shelf-stocked-with-various-canned-goods-and-sauces-2TA8PWY.jpg" class="img-fluid rounded-start" style="margin-top" />
+								}
+								@if (grocery.CategoryName =="Suppliments")
+								{
+									<img src="https://i.pinimg.com/736x/be/23/55/be2355cd3de81fb555f6382ceb694f03.jpg" class="img-fluid rounded-start" style="margin-top:auto" />
+								}
+							</div>
+								<div class="card-content">
+									<h5>@grocery.ItemName</h5>
+									@*<p>Id = @grocery.Id</p>*@
+									<p><b>Description</b> = @grocery.ItemDescription</p>
+									<p><b>Type</b> = @grocery.ItemType</p>
+									<p><b>Category</b> = @grocery.CategoryName</p>
+									<p><b>Created Date</b> = @grocery.CretedDate</p>
+									<p><b>Price</b> = @grocery.ItemPrice</p>
+									<p><b>Created By</b> = @grocery.CreatedBy</p>
+								</div>
+									<div class="card-action">
+										<a asp-controller="Grocery" asp-action="UpdateGrocery" asp-route-id="@grocery.Id">Edit</a>
+										<a asp-controller="Grocery" asp-action="DeleteGrocery" asp-route-id="@grocery.Id">Delete</a>
+									</div>
+							</div>
+						</div>
+									
+					
+						
+					}
+				}
+		</div>
+	</div>
+</body>

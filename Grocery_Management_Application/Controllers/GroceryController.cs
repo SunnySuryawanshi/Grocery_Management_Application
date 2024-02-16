@@ -6,12 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using System.Security.Cryptography.Xml;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
+
 
 namespace Grocery_Management_Application.Controllers
 {
     [Authorize]
     public class GroceryController : Controller
     {
+       
+
         ICategoryRepositorycs _categoryRepositorycs;
         IGroceryRepositorycs _groceryRepositorycs;
         public GroceryController(ICategoryRepositorycs categoryRepositorycs, IGroceryRepositorycs groceryRepositorycs)
@@ -44,36 +52,72 @@ namespace Grocery_Management_Application.Controllers
         public IActionResult AddGrocery()
         {
             var addGroceryViewModel = new AddGroceryViewModel();
+
             var categories = _categoryRepositorycs.GetAllCategories();
+
             List<SelectListItem> categorySelectListItems = new List<SelectListItem>();
             foreach (var category in categories)
             {
                 categorySelectListItems.Add(new SelectListItem { Text = category.CategoryName, Value = category.CategoryId.ToString() });
             }
             categorySelectListItems.Insert(0, new SelectListItem { Text = "--Select-Category--", Value = String.Empty });
+
+            
             addGroceryViewModel.CategoryList = categorySelectListItems;
             return View(addGroceryViewModel);
         }
+
         [HttpPost]
-        public IActionResult AddGrocery(AddGroceryViewModel addGroceryViewModel)
+        public IActionResult AddGrocery(AddGroceryViewModel addgroceryViewModel)
         {
-            if(ModelState.IsValid)
+
+            var addGroceryViewModel = new AddGroceryViewModel();
+            var categories = _categoryRepositorycs.GetAllCategories();
+            List<SelectListItem> categoriesSelectListItems = new List<SelectListItem>();
+
+            foreach (var category in categories)
             {
+                categoriesSelectListItems.Add(new SelectListItem { Text = category.CategoryName, Value = category.CategoryId.ToString() });
+            }
+
+            categoriesSelectListItems.Insert(0, new SelectListItem { Text = "--Select-Category--", Value = String.Empty });
+            addGroceryViewModel.CategoryList = categoriesSelectListItems;
+
+            ModelState.Remove(nameof(addgroceryViewModel.CategoryList));
+           
+
+            if (ModelState.IsValid)
+            {
+                var existingGrocery = _groceryRepositorycs.GetAllGrocery(User.Identity.Name);
+                //var groceries = existingGrocery?.FirstOrDefault
+                //    (
+                //    g => g.ItemName.ToLower() == addGroceryViewModel.ItemName.ToLower() && 
+                //    g.ItemType.ToLower() == addGroceryViewModel.ItemType.ToLower()
+                //    );
+                //if (groceries != null)
+                //{
+                //    ModelState.AddModelError("",$"{addGroceryViewModel.ItemName} with type {addGroceryViewModel.ItemType} is already exists");
+                //    return View(addGroceryViewModel);
+                //}
                 var grocery = new Grocery
                 {
-                    ItemName = addGroceryViewModel.ItemName,
-                    ItemDiscription = addGroceryViewModel.ItemDescription,
-                    ItemType = addGroceryViewModel.ItemType,
-                    CategoryId = addGroceryViewModel.CategoryId,
-                    CreatedDate = DateTime.Now,
-                    ItemPrice = addGroceryViewModel.ItemPrice,
-                    Createdby = HttpContext.User.Identity.Name
+                   ItemName = addgroceryViewModel.ItemName,
+                   ItemDiscription = addgroceryViewModel.ItemDescription,
+                   ItemType = addgroceryViewModel.ItemType,
+                   CategoryId = addgroceryViewModel.CategoryId,
+                   CreatedDate = DateTime.Now,
+                   ItemPrice = addgroceryViewModel.ItemPrice,
+                   Createdby = HttpContext.User.Identity.Name
                 };
-                var addgroceryuser = _groceryRepositorycs.AddGrocery(grocery);
+
+                var addedgrocery = _groceryRepositorycs.AddGrocery(grocery);
                 return RedirectToAction("Index");
             }
-            return View(addGroceryViewModel);
+            
+                return View(addGroceryViewModel);
         }
+
+
         [HttpGet]
         public IActionResult UpdateGrocery(int Id)
         {
@@ -98,7 +142,8 @@ namespace Grocery_Management_Application.Controllers
         [HttpPost]
         public IActionResult UpdateGrocery(int id, UpdateGroceryViewModel updateGroceryViewModel)
         {
-            if(ModelState.IsValid)
+            ModelState.Remove(nameof(updateGroceryViewModel.CategoryList));
+            if (ModelState.IsValid)
             {
                 Grocery grocery = new Grocery
                 { 

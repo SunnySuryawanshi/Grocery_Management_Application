@@ -1,3 +1,6 @@
+
+
+
 html {
   font-size: 14px;
 }
@@ -8,11 +11,99 @@ html {
   }
 }
 
+
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background: #e2eaef;
+    font-family: "Open Sans", sans-serif;
 }
+
+h2 {
+    color: #000;
+    font-size: 26px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    margin: 30px 0 60px;
+}
+    h2::after {
+        content: "";
+        width: 100px;
+        position: absolute;
+        margin: 0 auto;
+        height: 4px;
+        border-radius: 1px;
+        background: #7ac400;
+        left: 0;
+        right: 0;
+        bottom: -20px;
+    }
+
+.card{
+    margin-top:30px;
+}
+
+.card span.card-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.card .card-image {
+    position: relative;
+    overflow: hidden;
+}
+
+    .card .card-image img {
+        border-radius: 2px 2px 0 0;
+        background-clip: padding-box;
+        position: relative;
+        z-index: -1;
+    }
+
+    .card .card-image span.card-title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 16px;
+    }
+
+.card .card-content {
+    padding: 16px;
+    border-radius: 0 0 2px 2px;
+    background-clip: padding-box;
+    box-sizing: border-box;
+}
+
+    .card .card-content p {
+        margin: 0;
+        color: inherit;
+    }
+
+    .card .card-content span.card-title {
+        line-height: 48px;
+    }
+
+.card .card-action {
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 16px;
+}
+
+    .card .card-action a {
+        color: #228B22;
+        margin-right: 16px;
+        transition: color 0.3s ease;
+        text-transform: uppercase;
+    }
+
+        .card .card-action a:hover {
+            color: #90EE90;
+            text-decoration: none;
+        }

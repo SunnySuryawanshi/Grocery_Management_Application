@@ -1,4 +1,5 @@
-﻿using Grocery_Management_Application.Models;
+﻿using Grocery_Management_Application.DBContext;
+using Grocery_Management_Application.Models;
 
 namespace Grocery_Management_Application.Repository
 {
