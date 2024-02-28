@@ -1,0 +1,43 @@
+﻿
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+    border-color: #d9534f;
+}
+
+    .btn-danger:hover {
+        background-color: #c9302c;
+        border-color: #c9302c;
+    }
+
+.btn-primary {
+    background-color: #5bc0de;
+    border-color: #5bc0de;
+}
+
+    .btn-primary:hover {
+        background-color: #31b0d5;
+        border-color: #31b0d5;
+    }
